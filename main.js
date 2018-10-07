@@ -1,3 +1,4 @@
+  
   var yyy = document.getElementById('xxx')
   var context = yyy.getContext('2d');
 
@@ -17,6 +18,20 @@
     eraserEnabled = true
     eraser.classList.add('active')
     brush.classList.remove('active')
+  }
+
+  remove.onclick = function() {
+    context.clearRect(0,0,yyy.clientWidth,yyy.clientHeight)
+  }
+
+  download.onclick = function(){
+    var url = yyy.toDataURL("image/png")
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = 'myCanvas'
+    a.target = '_blank'
+    a.click()//模拟点击事件
   }
 
   red.onclick = function () {
@@ -43,6 +58,20 @@
     context.strokeStyle = 'blue'
   }
 
+  thin.onclick = function(){
+     context.lineWidth = 2
+  }
+
+  middle.onclick = function () {
+    context.lineWidth = 5
+  }
+
+   thick.onclick = function () {
+     context.lineWidth = 10
+   }
+
+   
+
   //自定义工具函数
 
   //设置画布大小
@@ -66,7 +95,6 @@
   //圆
   function drawCircle(x, y, radius) {
     context.beginPath()
-
     context.arc(x, y, radius, 0, Math.PI * 2)
     context.fill()
   }
@@ -75,7 +103,7 @@
   function drawLine(x1, y1, x2, y2) {
     context.beginPath()
     context.moveTo(x1, y1) //起点
-    context.lineWidth = 5
+   
     context.lineTo(x2, y2) //终点
     context.stroke()
     context.closePath()
@@ -104,11 +132,9 @@
             "y": y
           }
         }
-        console.log('开始摸我了')
       }
 
       canvas.ontouchmove = function (e) {
-        console.log('边摸边动')
         var x = parseInt(e.touches[0].clientX)
         var y = parseInt(e.touches[0].clientY)
         if (!using) {
@@ -127,7 +153,6 @@
       }
 
       canvas.ontouchend = function () {
-        console.log('摸完了')
         using = false
       }
     } else {

@@ -10,6 +10,9 @@ body,html{
   overflow: hidden;
 }
 
+body{
+  background: #fff
+}
 * {
   margin: 0;
   padding: 0;
@@ -23,15 +26,17 @@ li {
 
 #xxx {
   display: block;
-  position: relative;
+  background: white;
+  position: fixed;
+  top:0;
+  left:0;
 }
 
 .actions {
   position: fixed;
   left: 0;
   top: 0;
-  padding: 20px;
-
+  padding: 20px; 
 }
 
 .icon {
@@ -78,3 +83,32 @@ li {
 .blue{
   background: blue;
 }
+
+.brushWidthList{
+  width:20px;
+  position: fixed;
+  right:20px;
+  top:60px;
+  overflow: hidden;
+}
+
+.brushWidthList>li{
+  width:20px;
+  height:10px;
+  margin:10px 0;
+  transition: all 0.3s;
+}
+
+.brushWidthList>li.thin{
+  border-bottom:2px solid #000;
+}
+
+.brushWidthList>li.middle{
+  border-bottom: 5px solid #000;
+}
+
+.brushWidthList>li.thick{
+  border-bottom: 8px solid #000;
+}
+
+
