@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    #canvas {
+      background: red;
+      height: 100vh;
+      position: relative;
+    }
+
+    button{
+      display: fixed;
+      left:0;
+      top:0;
+      z-index: 2;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="canvas"></div>
+  <button>橡皮擦</button>
+  <script>
+    var div = document.getElementById('canvas');
+    var painting = false;
+    div.onmousedown = function (e) {
+      painting = true;
+      var x = e.clientX
+      var y = e.clientY
+      var divA = document.createElement('div')
+      divA.style = "width:6px;height:6px;" + "background:black;border-radius:3px;" +
+        "position:absolute;" + "left:" + (x - 3) + "px;top:" + (y - 3) + "px;";
+      div.appendChild(divA);
+
+    }
+
+    div.onmousemove = function (e) {
+      if (painting) {
+        var x = e.clientX
+        var y = e.clientY
+        var divA = document.createElement('div')
+        divA.style = "width:6px;height:6px;" + "background:black;border-radius:3px;" +
+          "position:absolute;" + "left:" + (x - 3) + "px;top:" + (y - 3) + "px;";
+        div.appendChild(divA);
+      }
+    }
+
+  //用canvas画
+  // //长方形
+  // context.fillStyle = 'red';
+  // context.strokeStyle = 'blue';
+  // context.fillRect(10,10,200,200);
+  // context.strokeRect(10,10,200,200);
+  // context.clearRect(50,50,10,10)
+
+  // //三角形
+  // context.fillstyle = 'yellow'
+  // context.beginPath()//开始画
+  // context.moveTo(240,240)
+  // context.lineTo(300,240)
+  // context.lineTo(300,300)
+  // context.fill()
+  </script>
+</body>
+
+</html>
