@@ -1,0 +1,35 @@
+* {
+   margin: 0;
+   padding: 0;
+ }
+
+ #xxx {
+   background: green;
+   display: block;
+   position: relative;
+ }
+
+ .actions {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+ }
+
+ .actions>#eraser {
+   display: block;
+ }
+
+ .actions>#brush {
+   display: none;
+ }
+
+ .actions.x>#eraser {
+   display: none;
+ }
+
+ .actions.x>#brush {
+   display: block;
+ }
+
+
+ 

@@ -1,75 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>JS Bin</title>
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-    }
-
-    #canvas {
-      background: red;
-      height: 100vh;
-      position: relative;
-    }
-
-    button{
-      display: fixed;
-      left:0;
-      top:0;
-      z-index: 2;
-    }
-  </style>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,
+maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
 
 </head>
 
 <body>
-  <div id="canvas"></div>
-  <button>橡皮擦</button>
-  <script>
-    var div = document.getElementById('canvas');
-    var painting = false;
-    div.onmousedown = function (e) {
-      painting = true;
-      var x = e.clientX
-      var y = e.clientY
-      var divA = document.createElement('div')
-      divA.style = "width:6px;height:6px;" + "background:black;border-radius:3px;" +
-        "position:absolute;" + "left:" + (x - 3) + "px;top:" + (y - 3) + "px;";
-      div.appendChild(divA);
-
-    }
-
-    div.onmousemove = function (e) {
-      if (painting) {
-        var x = e.clientX
-        var y = e.clientY
-        var divA = document.createElement('div')
-        divA.style = "width:6px;height:6px;" + "background:black;border-radius:3px;" +
-          "position:absolute;" + "left:" + (x - 3) + "px;top:" + (y - 3) + "px;";
-        div.appendChild(divA);
-      }
-    }
-
-  //用canvas画
-  // //长方形
-  // context.fillStyle = 'red';
-  // context.strokeStyle = 'blue';
-  // context.fillRect(10,10,200,200);
-  // context.strokeRect(10,10,200,200);
-  // context.clearRect(50,50,10,10)
-
-  // //三角形
-  // context.fillstyle = 'yellow'
-  // context.beginPath()//开始画
-  // context.moveTo(240,240)
-  // context.lineTo(300,240)
-  // context.lineTo(300,300)
-  // context.fill()
-  </script>
+  <canvas id="xxx"></canvas>
+  <div id="actions" class="actions">
+    <button id="eraser">橡皮擦</button>
+    <button id="brush">画笔</button>
+  </div>
+  <script src="./main.js"></script>
 </body>
 
 </html>
