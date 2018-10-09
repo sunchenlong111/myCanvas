@@ -1,3 +1,4 @@
+
   
   var yyy = document.getElementById('xxx')
   var context = yyy.getContext('2d');
@@ -12,26 +13,30 @@
     eraserEnabled = false
     brush.classList.add('active')
     eraser.classList.remove('active')
+    xxx.className="brush"
   }
 
   eraser.onclick = function () {
     eraserEnabled = true
     eraser.classList.add('active')
     brush.classList.remove('active')
+    xxx.className="eraser"
   }
 
   remove.onclick = function() {
     context.clearRect(0,0,yyy.clientWidth,yyy.clientHeight)
+   
   }
 
   download.onclick = function(){
     var url = yyy.toDataURL("image/png")
     var a = document.createElement('a')
+    
     document.body.appendChild(a)
     a.href = url
     a.download = 'myCanvas'
     a.target = '_blank'
-    a.click()//模拟点击事件
+    a.click()
   }
 
   red.onclick = function () {
@@ -158,8 +163,8 @@
     } else {
       //pc端
       canvas.onmousedown = function (e) {
-        var x = e.clientX
-        var y = e.clientY
+        var x = e.clientX+3
+        var y = e.clientY+27
         using = true
         if (eraserEnabled) {
           context.clearRect(x - 10, y - 10, 20, 20)
@@ -171,8 +176,8 @@
         }
       }
       canvas.onmousemove = function (e) {
-        var x = e.clientX
-        var y = e.clientY
+        var x = e.clientX+3
+        var y = e.clientY+27
         if (!using) {
           return
         }

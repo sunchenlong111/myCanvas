@@ -30,8 +30,17 @@ li {
   position: fixed;
   top:0;
   left:0;
+ 
 }
 
+
+canvas.brush{
+  cursor: url("./images/pencil.png"),default;
+}
+
+canvas.eraser{
+  cursor: url("./images/eraser.png"),default;
+}
 .actions {
   position: fixed;
   left: 0;
