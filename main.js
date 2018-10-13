@@ -23,9 +23,19 @@
     xxx.className="eraser"
   }
 
+  var flag =false//有bug下次记得解决
   remove.onclick = function() {
-    context.clearRect(0,0,yyy.clientWidth,yyy.clientHeight)
-   
+    if(flag == false){
+      flag = true
+      context.clearRect(0, 0, yyy.clientWidth, yyy.clientHeight)
+      remove.classList.add('click');
+      setTimeout(() => {
+          remove.classList.remove('click');
+          flag = false
+      }, 800);
+    }
+
+    
   }
 
   download.onclick = function(){

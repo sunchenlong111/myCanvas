@@ -120,4 +120,13 @@ canvas.eraser{
   border-bottom: 8px solid #000;
 }
 
+#remove{
+  transition:all 0.5s;
+}
+
+#remove.click{
+  transform:rotate(360deg)
+}
+
+
 
